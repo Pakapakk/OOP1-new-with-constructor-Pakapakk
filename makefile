@@ -1,4 +1,4 @@
-DEPS= student
+DEPS= Thanos
 compile: main.cpp 
 	 g++ main.cpp -o $(DEPS)
 

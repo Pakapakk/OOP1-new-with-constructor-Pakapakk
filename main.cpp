@@ -1,41 +1,65 @@
 #include <iostream>
+#include <iomanip>
+#include <string>
 using namespace std;
 
-#include "student.h"
+#include "monster.h"
+#include "Thanos.h"
 
-int main() {
-/*  student s1,s2;
+int main(int argc, char* argv[]) {
+  Thanos T;
+  int n;
+  int hp_in;
 
- // s1.name="PUN";  // ERROR, it is in private
-    s1.set_name("Pun");  	s1.set_age(20); 
-		s2.set_name("Joe");
-		s2.set_age(27); 
-		
-    s1.get_age()>s2.get_age() ?
-    s1.print_name(): s2.print_name(); 
-   if( s1.get_age()>s2.get_age() )
-     s1.print_name();
-       else  s2.print_name(); 
-      cout <<"is older"<<endl;
-*/
-     student Cst[10],*p;
-     int i;
-     string n;
-     for(i=0;i<3;i++){
-         cout<<"What is your name?";
-         cin>>n;
-         Cst[i].set_name(n);
-     }
-    for(i=0;i<3;i++){
-       
-         Cst[i].print_name();
-     }
-    cout<<endl;
-    cout<<"Pointer"<<endl;
-    p=&Cst[2];
-    (*p).print_name();
-    p->print_name();
-    (p-1)->print_name();
+  cout << "How many monsters? ";
+  cin >> n;
+
+  monster *m = new monster[n];
+
+  for(int i = 0; i < n; i++){
+    cout << "Input monster's HP : ";
+    cin >> hp_in;
+    m[i].set_hp(hp_in);
+  }
+  
+  cout << "\n" << "Thanos is coming." << "\n";
+  T.operator++();
+  m[1].attack(m[2]);
+  cout << "Thanos is coming." << "\n";
+  T.operator++();
+  
+    T.snap_finger(m, n);
+  
+  cout << "Thanos is coming." << "\n";
+  T.operator++();
+  cout << "Thanos is coming." << "\n";
+  T.operator++();
+  
+    T.snap_finger(m, n);
+
+  cout << "Thanos is coming." << "\n";
+  T.operator++();
+  cout << "Thanos is coming." << "\n";
+  T.operator++();
+  cout << "Thanos is here!" << "\n";
+    T.snap_finger(m, n);
+
+  delete []m;
+  
+  return 0;
 }
-
-//CST --> Joe  Jim Jan*
+  
+/*
+  monster A("Heart");
+  monster B("Herb", 20);
+  monster c("Jod", 15, 20);
+  */
+  //monster x[10] = {{"vgg", 10, 20}, {"ma", 15}, {"Fill"}};
+  /*
+  monster *p = new monster("Ben 10");
+  delete p;
+  monster A("Naz");
+  p = &A;
+  p = new monster[3];
+  delete []p
+  */
